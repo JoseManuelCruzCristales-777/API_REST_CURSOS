@@ -7,51 +7,39 @@ echo "<pre>";
 print_r($arrayRutas);
 echo "</pre>";
 
-
-
 if (count(array_filter($arrayRutas)) == 2) {
 
-    // cuando no  se hace ninguna peticion
-
+    // cuando no se hace ninguna petición
     $json = array(
-
         "detalle" => "no encontrado"
     );
     echo json_encode($json, true);
-
     return;
-} else {
 
-    if (count(array_filter($arrayRutas)) == 3) {
-        // cuando se pasa un indice de cursos 
+} elseif (count(array_filter($arrayRutas)) == 3) {
 
-        if (array_filter($arrayRutas)[3] == "cursos") {
-            $json = array(
+    // cuando se pasa un indice
 
-                "detalle" => "Estas en la vista cursos "
-            );
-            echo json_encode($json, true);
+    if (array_filter($arrayRutas)[3] == "cursos") {
 
+        if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $cursos = new ControladorCursos();
+            $cursos->index();
             return;
+
         }
 
-        if (array_filter($arrayRutas)[3] == "registros") {
-            $json = array(
+    } elseif (array_filter($arrayRutas)[3] == "registros") {
 
-                "detalle" => "Estas en la vista  de registros "
-            );
-            echo json_encode($json, true);
-
-            return;
-        }
-
-
-
+        $json = array(
+            "detalle" => "Estas en la vista de registros"
+        );
+        echo json_encode($json, true);
+        return;
 
     }
 
-
 }
-
 
 ?>
