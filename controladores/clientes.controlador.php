@@ -8,8 +8,6 @@ class ControladorClientes
     {
         $json = array("detalle" => "Estas en la vista  de registros ");
         echo json_encode($json, true);
-        
-    
 
 
     }

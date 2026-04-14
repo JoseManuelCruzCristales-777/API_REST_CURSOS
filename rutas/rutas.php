@@ -54,8 +54,6 @@ if (count(array_filter($arrayRutas)) == 2) {
                 $clietes->create();
                 return;
 
-
-
             }
 
             return;
@@ -64,9 +62,41 @@ if (count(array_filter($arrayRutas)) == 2) {
 
 
 
+    } else {
+
+        if (array_filter($arrayRutas)[3] == "cursos" && is_numeric(array_filter($arrayRutas)[4])) {
+
+            if (isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD'] == "GET")) {
+
+                $cursos = new ControladorCursos();
+                $cursos->show(array_filter($arrayRutas)[4]);
+                return;
+
+
+            }
+            // PETICION PUT PARA CURSOS
+
+            if (isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD'] == "PUT")) {
+
+                $editarCurso = new ControladorCursos();
+                $editarCurso->update(array_filter($arrayRutas)[4]);
+                return;
+
+            }
+            // PETICION DELETE PARA CURSOS
+
+            if (isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD'] == "DELETE")) {
+
+                $borrarCurso = new ControladorCursos();
+                $borrarCurso->delete(array_filter($arrayRutas)[4]);
+                return;
+
+            }
+
+
+        }
+
     }
-
-
 }
 
 
