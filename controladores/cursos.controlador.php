@@ -10,11 +10,25 @@ class ControladorCursos
 
         $json = array("detalle" => "estas en la vista cursos");
         echo json_encode($json, true);
-        return;
+      
+
+
+    }
+
+
+    public function create()
+    {
+
+        $json = array("detalle" => "estas en la vista create");
+        echo json_encode($json, true);
+     
+
+
 
 
     }
 }
+
 
 
 ?>
