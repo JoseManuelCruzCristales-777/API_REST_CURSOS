@@ -7,8 +7,8 @@ class ControladorCursos
 
     public function index()
     {
-
-        $json = array("detalle" => "estas en la vista cursos");
+        $cursos = ModeloCursos::index("cursos");
+        $json = array("detalle" => $cursos);
         echo json_encode($json, true);
 
 
