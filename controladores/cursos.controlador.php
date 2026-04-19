@@ -9,7 +9,8 @@ class ControladorCursos
     {
         $cursos = ModeloCursos::index("cursos");
         $json = array("detalle" => $cursos);
-        echo json_encode($json, true);
+        header('Content-Type: application/json');
+        echo json_encode($json, JSON_PRETTY_PRINT);
 
 
 
