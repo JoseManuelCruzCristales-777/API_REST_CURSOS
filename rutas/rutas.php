@@ -48,7 +48,9 @@ if (count(array_filter($arrayRutas)) == 2) {
 
             if (isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD'] == "POST")) {
 
-                $datos = array("nombre" => $_POST["nombre"], "apellido" => $_POST["apellido"], "email" => $_POST["email"]);
+                $datos = array("nombre" => $_POST["nombre"], 
+                "apellido" => $_POST["apellido"], 
+                "email" => $_POST["email"]);
 
                 // echo "<pre>";
                 // print_r($datos);
